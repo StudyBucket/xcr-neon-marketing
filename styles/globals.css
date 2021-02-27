@@ -1,4 +1,30 @@
-html,
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --neon-blue: #1e90ff;
+  --white: #ffffff; 
+  --navbar-height: 3em;
+}
+
+.h-navbar {
+  height: var(--navbar-height);
+}
+
+.h-first-section {
+  height: calc(100vh - calc(2 * var(--navbar-height)));
+}
+
+.text-neon-blue {
+  color: var(--neon-blue)!important;
+}
+
+.bg-neon-blue {
+  background-color: var(--neon-blue);
+}
+
+/* html,
 body {
   padding: 0;
   margin: 0;
@@ -13,4 +39,4 @@ a {
 
 * {
   box-sizing: border-box;
-}
+} */
