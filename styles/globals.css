@@ -3,17 +3,14 @@
 @tailwind utilities;
 
 :root {
-  --neon-blue: #1e90ff;
+  /* --neon-blue: #1e90ff; */
+  --neon-blue: #00B5F8;
+  --neon-gray: #1c1c1c;
+  --neon-light-gray: #3F3F3F;
+  --neon-orange: #ea9113;
+  --neon-white: #f1f1f1; 
   --white: #ffffff; 
   --navbar-height: 3em;
-}
-
-.h-navbar {
-  height: var(--navbar-height);
-}
-
-.h-first-section {
-  height: calc(100vh - calc(2 * var(--navbar-height)));
 }
 
 .text-neon-blue {
@@ -22,6 +19,49 @@
 
 .bg-neon-blue {
   background-color: var(--neon-blue);
+}
+
+.border-neon-blue {
+  border-color: var(--neon-blue);
+}
+
+.text-neon-gray {
+  color: var(--neon-gray)!important;
+}
+
+.bg-neon-gray {
+  background-color: var(--neon-gray);
+}
+
+.text-neon-light-gray {
+  color: var(--neon-light-gray)!important;
+}
+
+.bg-neon-light-gray {
+  background-color: var(--neon-light-gray);
+}
+
+.text-neon-orange {
+  color: var(--neon-orange)!important;
+}
+
+.bg-neon-orange {
+  background-color: var(--neon-orange);
+}
+
+.text-neon-white {
+  color: var(--neon-white)!important;
+}
+
+.bg-neon-white {
+  background-color: var(--neon-white);
+}
+
+* {
+  font-family: Ubuntu, sans-serif;
+  -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 /* html,
