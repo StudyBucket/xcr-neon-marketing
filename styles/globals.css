@@ -4,17 +4,17 @@
 
 :root {
   /* --neon-blue: #1e90ff; */
-  --neon-blue: #00B5F8;
+  --neon-blue: #00b5f8;
   --neon-gray: #1c1c1c;
-  --neon-light-gray: #3F3F3F;
+  --neon-light-gray: #3f3f3f;
   --neon-orange: #ea9113;
-  --neon-white: #f1f1f1; 
-  --white: #ffffff; 
+  --neon-white: #f1f1f1;
+  --white: #ffffff;
   --navbar-height: 3em;
 }
 
 .text-neon-blue {
-  color: var(--neon-blue)!important;
+  color: var(--neon-blue) !important;
 }
 
 .bg-neon-blue {
@@ -26,7 +26,7 @@
 }
 
 .text-neon-gray {
-  color: var(--neon-gray)!important;
+  color: var(--neon-gray) !important;
 }
 
 .bg-neon-gray {
@@ -34,7 +34,7 @@
 }
 
 .text-neon-light-gray {
-  color: var(--neon-light-gray)!important;
+  color: var(--neon-light-gray) !important;
 }
 
 .bg-neon-light-gray {
@@ -42,7 +42,7 @@
 }
 
 .text-neon-orange {
-  color: var(--neon-orange)!important;
+  color: var(--neon-orange) !important;
 }
 
 .bg-neon-orange {
@@ -50,7 +50,7 @@
 }
 
 .text-neon-white {
-  color: var(--neon-white)!important;
+  color: var(--neon-white) !important;
 }
 
 .bg-neon-white {
@@ -60,8 +60,12 @@
 * {
   font-family: Ubuntu, sans-serif;
   -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.h-navbar {
+  min-height: 5rem;
 }
 
 /* html,
