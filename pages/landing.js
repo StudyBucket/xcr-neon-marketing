@@ -11,6 +11,7 @@ import LandingHeader from "../components/layout/LandingHeader";
 import { Button, CTAButton, PillButton } from "../components/Buttons";
 import Ribbon from "../components/Ribbon";
 import { CheckIcon } from "../components/Icons";
+import DenseImageGrid, { ImageGridItem } from "../components/DenseImageGrid";
 export default function Landing(){
   return(<LandingPage>
         <Head>
@@ -122,6 +123,31 @@ export default function Landing(){
               ))
             }
           </PillarSection>
+
+          <Section backgroundColor="bg-neon-white" textColor="text-neon-gray">
+            <SectionHeader
+                prior="magna aliquyam erat!"
+                headline="Lorem ipsum dolor sit amet"/>
+            <div className="mx-auto text-center pb-20">
+              <DenseImageGrid>
+                <ImageGridItem image={{url:'/img/gfx/1.jpg', height: '150', width: '150', alt:'Lorem Ipsum', title:'Lorem Ipsum'}}/>
+                <ImageGridItem image={{url:'/img/gfx/video.png', height: '250', width: 'auto', alt:'Lorem Ipsum', title:'Lorem Ipsum'}}/>
+                <ImageGridItem image={{url:'/img/gfx/2.jpg', height: '150', width: '150', alt:'Lorem Ipsum', title:'Lorem Ipsum'}}/>
+                <ImageGridItem image={{url:'/img/gfx/video.png', height: '250', width: 'auto', alt:'Lorem Ipsum', title:'Lorem Ipsum'}}/>
+                <ImageGridItem image={{url:'/img/gfx/3.jpg', height: '150', width: '150', alt:'Lorem Ipsum', title:'Lorem Ipsum'}}/>
+                <ImageGridItem image={{url:'/img/gfx/video.png', height: '250', width: 'auto', alt:'Lorem Ipsum', title:'Lorem Ipsum'}}/>
+                <ImageGridItem image={{url:'/img/gfx/1.jpg', height: '150', width: '150', alt:'Lorem Ipsum', title:'Lorem Ipsum'}}/>
+                <ImageGridItem image={{url:'/img/gfx/video.png', height: '250', width: 'auto', alt:'Lorem Ipsum', title:'Lorem Ipsum'}}/>
+              </DenseImageGrid>
+            </div>
+            <div className="mx-auto text-center px-10 mt-15">
+              <CTAButton
+                  hasShadow={true}
+                  bgColor="bg-neon-orange"
+                  textColor="text-neon-white"
+                  onClick={(e) => confirm('Kaufen?')}>Consetetur</CTAButton>
+            </div>
+          </Section>
 
         </LandingPage>)
 }
