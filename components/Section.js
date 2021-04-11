@@ -60,17 +60,23 @@ class VideoSection extends React.Component {
     this.vidRef = elem;
   }
 
-  playVideo = () => {
-    this.vidRef.play();
+  playVideo = async () => {
+    await this.vidRef.play();
   }
 
-  pauseVideo = () => {
-    this.vidRef.pause();
+  pauseVideo = async () => {
+    await this.vidRef.pause();
   }
 
   componentDidMount = () => {
-    if(this.props.autoPlay) this.playVideo();
-    if(this.props.freezeMS) setTimeout(this.pauseVideo, this.props.freezeMS);
+    if(this.vidRef) {
+      try {
+        if(this.props.autoPlay) this.playVideo().catch((err) => console.log(err));
+        if(this.props.freezeMS) setTimeout(this.pauseVideo, this.props.freezeMS);
+      } catch(e){
+        console.log(e);
+      }
+    }
   };
 
   componentWillUnmount = () => {
@@ -87,11 +93,19 @@ class VideoSection extends React.Component {
           {this.props.sectionHeader}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <video
+              autobuffer="true"
+              muted
+              playsInline={true}
+              loop
+              //autoplay
+                preload="none"
+                poster="/img/video.png"
                 controls={this.props.controls || false}
                 ref={this.getVideo}
-                // autoPlay={this.props.autoPlay || true}
-                loop={this.props.loop || false}>
-                <source src={this.props.videoUrl} type="video/mp4" />
+                // autoPlay
+                // loop={this.props.loop || false}
+              >
+                <source src={this.props.videoUrl} type="video/mp4"/>
             </video>
 
             <aside>

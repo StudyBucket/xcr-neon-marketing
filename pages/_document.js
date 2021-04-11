@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
     render() {
         return (
-            <Html className="">
+            <Html className="" lang="de-DE">
                 <Head>
                     {/* embed Ubuntu form google fonts */}
                     <link rel="preconnect"

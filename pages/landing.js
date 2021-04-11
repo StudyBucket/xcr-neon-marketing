@@ -10,6 +10,7 @@ import PillarContent from "../components/PillarContent";
 import LandingHeader from "../components/layout/LandingHeader";
 import { Button, CTAButton, PillButton } from "../components/Buttons";
 import Ribbon from "../components/Ribbon";
+import { CheckIcon } from "../components/Icons";
 export default function Landing(){
   return(<LandingPage>
         <Head>
@@ -23,7 +24,7 @@ export default function Landing(){
           autoPlay={true}
           loop={false}
           freezeMS={12000}
-          videoUrl="/img/video.mp4">
+          videoUrl="/img/video-compressed.mp4">
           <div className="flex flex-col sm:flex-row bg-white text-neon-gray rounded-xl">
               <div className="rounded-xl text-center p-5 text-xl relative overflow-hidden">
                 <Ribbon>NEU!</Ribbon>
@@ -35,7 +36,7 @@ export default function Landing(){
                   hasShadow={true}
                   bgColor="bg-neon-orange"
                   textColor="text-neon-white"
-                  onClick={(e) => console.log(e)}>Consetetur</CTAButton>
+                  onClick={(e) => confirm('Kaufen?')}>Consetetur</CTAButton>
               </div>
               <div className="rounded-xl mt-5 mb-10 mx-auto h-32 w-32">
                 <img className="object-fit rounded-xl" src="/img/gfx/1.jpg" alt="Lorem ipsum dolor" title="Lorem ipsum dolor"/>
@@ -66,7 +67,7 @@ export default function Landing(){
                   hasShadow={true}
                   bgColor="bg-neon-orange"
                   textColor="text-neon-white"
-                  onClick={(e) => console.log(e)}>Consetetur</CTAButton>
+                  onClick={(e) => confirm('Kaufen?')}>Consetetur</CTAButton>
               </div>
               <div className="relative overflow-hidden w-64 mx-auto">
                 <img className="object-fit w-full" src="/img/gfx/3.jpg" title="Lorem ipsum" alt="Lorem ipsum"/>
@@ -88,7 +89,7 @@ export default function Landing(){
             <List>
               {
                 [0,1,2,3,4,5,6,7,8,9].map((i) => (
-                  <IconListItem key={i}>
+                  <IconListItem key={i} icon={<CheckIcon className="text-neon-blue"/>}>
                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dianonumy eirmod tempor.
                   </IconListItem>
                  ))
@@ -97,7 +98,7 @@ export default function Landing(){
             <List>
               {
                 [0,1,2,3,4,5,6,7,8,9].map((i) => (
-                  <IconListItem key={i}>
+                  <IconListItem key={i} icon={<CheckIcon className="text-neon-blue"/>}>
                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.
                   </IconListItem>
                 ))

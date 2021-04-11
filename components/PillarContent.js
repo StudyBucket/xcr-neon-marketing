@@ -5,7 +5,7 @@ const PillarContent = ({title, imageUrl, children}) => (
         className="w-14 mx-auto m-5"
         src={imageUrl}
         alt={title}/>
-      <p className="font-semibold mb-10">
+      <p className="font-semibold mb-10 text-2xl md:text-3xl">
         {title}
       </p>
     </div>
