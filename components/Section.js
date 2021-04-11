@@ -1,4 +1,5 @@
-
+import React from 'react';
+;
 const Container = ({children}) => (
   <div className="container mx-auto max-w-5xl px-5 py-16">
     {children}
@@ -28,7 +29,7 @@ const SplitSection = ({children, sectionHeader, backgroundColor, textColor}) => 
       </div>
     </Container>
   </div>
-)
+);
 
 const PillarSection = ({children, sectionHeader, backgroundColor, textColor}) => (
   <div className={`${backgroundColor} ${textColor}`}>
@@ -39,55 +40,70 @@ const PillarSection = ({children, sectionHeader, backgroundColor, textColor}) =>
       </div>
     </Container>
   </div>
-)
+);
 
+const InterSection = ({children, boxShadow}) => (
+  <div className={`
+  relative -bottom-24 -mt-24 rounded-xl
+  ${['sm','md','lg','xl','2xl','inner'].includes(boxShadow) ? `shadow-${boxShadow}` : null}
+  `}>
+    {children}
+  </div>
+);
 
+class VideoSection extends React.Component {
+  constructor(props){
+    super(props);
+  }
 
-const VideoSection = ({children, videoUrl, sectionHeader, backgroundColor, textColor}) => {
+  getVideo = elem => {
+    this.vidRef = elem;
+  }
 
-  // const playVideo = () => {
-  //   this.refs.vidRef.play();
-  // }
+  playVideo = () => {
+    this.vidRef.play();
+  }
 
-  // const pauseVideo = () => {
-  //   this.refs.vidRef.pause();
-  // }
+  pauseVideo = () => {
+    this.vidRef.pause();
+  }
 
-  return(
-    <div className={`${backgroundColor} ${textColor}`}>
-      <Container>
-        {sectionHeader}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+  componentDidMount = () => {
+    if(this.props.autoPlay) this.playVideo();
+    if(this.props.freezeMS) setTimeout(this.pauseVideo, this.props.freezeMS);
+  };
 
+  componentWillUnmount = () => {
+    this.pauseVideo();
+  };
 
-          <div>
-            <video ref="vidRef" autoPlay={true} loop={true}>
-              <source src={videoUrl} type="video/mp4" />
+  render(){
+    return(
+      <div className={`
+        ${this.props.backgroundColor}
+        ${this.props.textColor}
+      `}>
+        <Container>
+          {this.props.sectionHeader}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <video
+                controls={this.props.controls || false}
+                ref={this.getVideo}
+                // autoPlay={this.props.autoPlay || true}
+                loop={this.props.loop || false}>
+                <source src={this.props.videoUrl} type="video/mp4" />
             </video>
-            {/* <button
-              className="bg-neon-blue rounded-full py-1 px-4 mx-2"
-              onClick={playVideo.bind(this)}
-            >
-              PLAY
-            </button>
-            <button
-              className="bg-neon-blue rounded-full py-1 px-4 mx-2"
-              onClick={pauseVideo.bind(this)}
-            >
-              PAUSE
-            </button> */}
+
+            <aside>
+              {this.props.children}
+            </aside>
+
           </div>
-
-          <aside className="bg-white rounded-xl text-black grid grid-rows-3">
-            {children}
-          </aside>
-
-        </div>
-      </Container>
-    </div>
-  )
+        </Container>
+      </div>
+    )
+  }
 }
 
 
-
-export {Section, SplitSection, PillarSection, Container, FlatContainer, VideoSection};
+export {Section, SplitSection, PillarSection, Container, FlatContainer, VideoSection, InterSection};

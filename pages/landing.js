@@ -4,22 +4,14 @@ import Link from 'next/link'
 
 import LandingPage from '../layouts/LandingPage'
 import SectionHeader from "../components/SectionHeader";
-import {Section, SplitSection, PillarSection, VideoSection} from "../components/Section";
+import {Section, SplitSection, PillarSection, VideoSection, InterSection} from "../components/Section";
 import {List, IconListItem} from '../components/List';
 import PillarContent from "../components/PillarContent";
 import LandingHeader from "../components/layout/LandingHeader";
-class Home extends React.Component {
-  // playVideo = () => {
-  //   this.refs.vidRef.play();
-  // }
-
-  // pauseVideo = () => {
-  //   this.refs.vidRef.pause();
-  // }
-
-  render() {
-    return (
-      <LandingPage>
+import { Button, CTAButton, PillButton } from "../components/Buttons";
+import Ribbon from "../components/Ribbon";
+export default function Landing(){
+  return(<LandingPage>
         <Head>
             <title>NEON Marketing</title>
             <link rel="icon" href="/favicon.ico" />
@@ -27,23 +19,29 @@ class Home extends React.Component {
 
         <LandingHeader/>
 
-        {/* <VideoSection videoUrl="/img/video.mp4">
-          <div className="text-xl md:text-2xl px-10 py-5 pt-10 font-semibold text-center">
-              <span>Lorem ipsum dolor sit amet!</span>
+        <VideoSection
+          autoPlay={true}
+          loop={false}
+          freezeMS={12000}
+          videoUrl="/img/video.mp4">
+          <div className="flex flex-col sm:flex-row bg-white text-neon-gray rounded-xl">
+              <div className="rounded-xl text-center p-5 text-xl relative overflow-hidden">
+                <Ribbon>NEU!</Ribbon>
+                <p>Lorem ipsum dolor sit amet,</p>
+                <p>consetetur sadipscing elitr!</p>
+                <Button
+                  hasShadow={true}>Consetetur!</Button>
+                <CTAButton
+                  hasShadow={true}
+                  bgColor="bg-neon-orange"
+                  textColor="text-neon-white"
+                  onClick={(e) => console.log(e)}>Consetetur</CTAButton>
+              </div>
+              <div className="rounded-xl mt-5 mb-10 mx-auto h-32 w-32">
+                <img className="object-fit rounded-xl" src="/img/gfx/1.jpg" alt="Lorem ipsum dolor" title="Lorem ipsum dolor"/>
+              </div>
             </div>
-            <div>
-              <p className="text-xs md:text-sm px-5">
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-                nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-                erat, sed diam voluptua.
-              </p>
-            </div>
-            <div>
-              <span className="rounded-full py-2 px-4 color bg-neon-orange font-semibold text-white text-sm md:text-xl shadow-lg hover:shadow-xl">
-                → Lorem ipsum!
-              </span>
-            </div>
-        </VideoSection> */}
+        </VideoSection>
 
         <Section backgroundColor="bg-neon-blue">
           <SectionHeader
@@ -51,22 +49,46 @@ class Home extends React.Component {
             prior="magna aliquyam erat!"
             headline="Lorem ipsum dolor sit amet"
             posterior="consetetur sadipscing elitr"/>
-          </Section>
+
+          <InterSection boxShadow="xl">
+            <div className="flex flex-col items-center sm:flex-row bg-white text-neon-gray rounded-xl p-5">
+              <div className="text-center p-5 text-xl relative overflow-hidden mx-auto">
+                {/* <Ribbon>NEU!</Ribbon> */}
+                <p>Lorem ipsum dolor sit amet,</p>
+                <p>consetetur sadipscing elitr!</p>
+                {/* <Button
+                  hasShadow={true}>Consetetur</Button>
+                <PillButton
+                  hasShadow={true}
+                  bgColor="bg-neon-blue"
+                  textColor="text-neon-white">Consetetur</PillButton> */}
+                <CTAButton
+                  hasShadow={true}
+                  bgColor="bg-neon-orange"
+                  textColor="text-neon-white"
+                  onClick={(e) => console.log(e)}>Consetetur</CTAButton>
+              </div>
+              <div className="relative overflow-hidden w-64 mx-auto">
+                <img className="object-fit w-full" src="/img/gfx/3.jpg" title="Lorem ipsum" alt="Lorem ipsum"/>
+              </div>
+            </div>
+          </InterSection>
+        </Section>
+
 
           <SplitSection sectionHeader={
               <SectionHeader
-                className=""
                 prior="magna aliquyam erat!"
                 headline="Lorem ipsum dolor sit amet"
                 posterior="consetetur sadipscing elitr"/>
             }
             backgroundColor="bg-white"
-            textColor="text-black"
+            textColor="text-neon-gray"
           >
             <List>
               {
-                [0,1,2,3,4,5,6,7,8,9].map(() => (
-                  <IconListItem>
+                [0,1,2,3,4,5,6,7,8,9].map((i) => (
+                  <IconListItem key={i}>
                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed dianonumy eirmod tempor.
                   </IconListItem>
                  ))
@@ -74,8 +96,8 @@ class Home extends React.Component {
             </List>
             <List>
               {
-                [0,1,2,3,4,5,6,7,8,9].map(() => (
-                  <IconListItem>
+                [0,1,2,3,4,5,6,7,8,9].map((i) => (
+                  <IconListItem key={i}>
                     Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.
                   </IconListItem>
                 ))
@@ -90,8 +112,8 @@ class Home extends React.Component {
               posterior="consetetur sadipscing elitr"/>
           }>
             {
-              [0,1,2,4].map(() => (
-                <PillarContent
+              [0,1,2,4].map((i) => (
+                <PillarContent key={i}
                   title="Dolor sit amet"
                   imageUrl="/img/gfx/1.jpg">
                   Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
@@ -100,8 +122,5 @@ class Home extends React.Component {
             }
           </PillarSection>
 
-        </LandingPage>
-      )
-    }
+        </LandingPage>)
 }
-export default Home;
