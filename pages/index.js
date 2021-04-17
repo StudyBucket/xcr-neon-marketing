@@ -1,9 +1,4 @@
-import Landing from './landing'
-
-export default function Impressum(){
-  return <Landing/>;
-}
-
+export { default } from './insta';
 
 // import Head from 'next/head'
 // import Link from 'next/link'

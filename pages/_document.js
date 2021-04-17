@@ -13,7 +13,7 @@ class MyDocument extends Document {
                     {/* embed Ubuntu form google fonts */}
                     <link rel="preconnect"
                         href="https://fonts.gstatic.com"
-                        crossorigin />
+                        crossOrigin="true" />
 
                     <link rel="preload"
                         as="style"
